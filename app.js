@@ -5,10 +5,10 @@ const C = {
   name1: 'You',
   name2: 'Me',
   startDate: '2024-02-14',
-  // Spotify track (primary UI). YouTube fallback for reliable autoplay:
-  spotifyTrack: '37Esp6rBYhZa8pxJs5xzIV',
-  ytId: 'dCfpg0_Hz-o', // YouTube audio (beats Spotify for autoplay reliability)
-  useYoutubeAudio: true, // set false to rely on Spotify embed only
+  // Spotify track (primary). YouTube fallback for autoplay reliability:
+  spotifyTrack: '6PqWdGIYq5xdLaa4zCZfRp',
+  ytId: '2uJut6bUSftQ', // Tulus - Jatuh Suka (YouTube fallback)
+  useYoutubeAudio: true,
   secretMsg: [
     'Hey you,',
     'I made this little corner just so you could feel how much you mean to me — even on the quiet days.',

@@ -283,8 +283,9 @@ html,body{height:100%;overflow:hidden;font-family:'Cormorant Garamond',serif;col
 .timer{text-align:center;padding:.9rem;border-radius:14px;background:rgba(255,255,255,.7);border:1px solid rgba(196,137,143,.12);margin:.7rem 0}
 .timer .t{font-family:'Great Vibes',cursive;font-size:2.2rem;color:#c4898f}
 
-.spotify-wrap{width:100%;max-width:360px;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.1);margin-top:1rem;min-height:80px;background:#000}
-.spotify-wrap iframe{display:block;width:100%;border:0}
+.spotify-wrap{width:100%;max-width:360px;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.1);margin-top:1rem;min-height:80px;background:#000;position:relative;z-index:1}
+.spotify-wrap iframe{display:block;width:100%;border:0;pointer-events:auto}
+.spotify-wrap::before{content:'';position:absolute;inset:0;left:0;right:0;top:0;height:24px;background:transparent;z-index:2;pointer-events:none}
 
 .mascot{width:120px;height:120px;margin-bottom:18px;filter:drop-shadow(0 8px 16px rgba(201,123,132,.22));opacity:0;animation:drop .6s cubic-bezier(.34,1.56,.64,1) .35s forwards}
 .center{text-align:center;width:100%;max-width:400px;display:flex;flex-direction:column;align-items:center}
