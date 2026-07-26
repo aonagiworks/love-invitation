@@ -1,0 +1,5 @@
+.vercel
+.desloppify/
+node_modules/
+coverage/
+scorecard.png

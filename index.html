@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Love of My Life</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+  <!-- 0: iOS NOTIF COVER -->
+  <section class="slide active bg-notif" data-i="0">
+    <div class="center">
+      <div class="ios-status"><span id="clock">9:41</span><span>📶 🔋</span></div>
+      <svg class="mascot" viewBox="0 0 200 200" fill="none">
+        <ellipse cx="100" cy="130" rx="42" ry="46" fill="#fff" stroke="#2d2d2d" stroke-width="3.5"/>
+        <circle cx="100" cy="80" r="44" fill="#fff" stroke="#2d2d2d" stroke-width="3.5"/>
+        <circle cx="64" cy="52" r="15" fill="#2d2d2d"/><circle cx="136" cy="52" r="15" fill="#2d2d2d"/>
+        <ellipse cx="84" cy="74" rx="13" ry="15" fill="#2d2d2d"/><ellipse cx="116" cy="74" rx="13" ry="15" fill="#2d2d2d"/>
+        <circle cx="87" cy="72" r="5" fill="#fff"/><circle cx="88.5" cy="70.5" r="2.2" fill="#2d2d2d"/>
+        <circle cx="113" cy="72" r="5" fill="#fff"/><circle cx="111.5" cy="70.5" r="2.2" fill="#2d2d2d"/>
+        <ellipse cx="100" cy="84" rx="4.5" ry="3" fill="#2d2d2d"/>
+        <path d="M94 89 Q100 96 106 89" stroke="#2d2d2d" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="72" cy="90" rx="9" ry="5" fill="#ffb5c5" opacity=".5"/><ellipse cx="128" cy="90" rx="9" ry="5" fill="#ffb5c5" opacity=".5"/>
+        <path d="M60 62 Q100 42 140 62 L143 55 Q100 34 57 55 Z" fill="#facc15" stroke="#2d2d2d" stroke-width="2.8"/>
+        <rect x="74" y="112" width="52" height="36" rx="4" fill="#c9a06c" stroke="#2d2d2d" stroke-width="3"/>
+        <path d="M100 112 V148 M74 130 H126" stroke="#2d2d2d" stroke-width="2"/>
+        <path d="M92 110 Q100 118 108 110" fill="#ff6b8a" stroke="#2d2d2d" stroke-width="1.8"/>
+        <ellipse cx="84" cy="176" rx="14" ry="7" fill="#2d2d2d"/><ellipse cx="116" cy="176" rx="14" ry="7" fill="#2d2d2d"/>
+      </svg>
+      <div class="ios-notif" id="notif" onclick="startJourney()">
+        <div class="ios-row">
+          <div class="ios-app-icon" style="position:relative">
+            💌
+            <svg class="ios-heart" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="17" fill="#ff4b4b" stroke="#fff" stroke-width="3"/>
+              <path d="M20 28 C20 28 11 22 11 16.5 C11 13.5 13.2 11.5 15.8 11.5 C17.5 11.5 19 12.8 20 14.2 C21 12.8 22.5 11.5 24.2 11.5 C26.8 11.5 29 13.5 29 16.5 C29 22 20 28 20 28 Z" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="ios-meta">
+            <div class="ios-top"><span class="ios-app">Messages</span><span class="ios-now">now</span></div>
+            <div class="ios-title">From: someone who loves you 💕</div>
+            <div class="ios-body">I left something soft for you. Open when ready.</div>
+          </div>
+        </div>
+      </div>
+      <div class="tap-hint">👆 Tap the notification</div>
+    </div>
+  </section>
+
+  <!-- 1: GIFT -->
+  <section class="slide bg-gift" data-i="1">
+    <div class="center fade-in">
+      <p class="kicker">A little something</p>
+      <h2 class="title">For you</h2>
+      <div class="divider"></div>
+      <div class="gift" id="gift" onclick="openGift()">
+        <div class="box-b">
+          <span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span>
+          <span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span>
+        </div>
+        <div class="box-t">
+          <div class="bow"><div class="bl l"></div><div class="bl r"></div><div class="bk"></div><div class="rt l"></div><div class="rt r"></div></div>
+        </div>
+      </div>
+      <p class="script-lg" id="gift-label" style="font-size:1.8rem;margin-top:1rem">just a little something</p>
+      <p class="muted" style="margin-top:.4rem">tap the gift</p>
+      <button class="btn" id="gift-next" style="display:none" onclick="go(2)">Continue 🤍</button>
+    </div>
+  </section>
+
+  <!-- 2: SONG + VINYL -->
+  <section class="slide bg-song" data-i="2">
+    <div class="center">
+      <p class="kicker">Our soundtrack</p>
+      <h2 class="title">Kisah Romantis</h2>
+      <p class="muted" style="margin:.3rem 0 1rem">Glenn Fredly · for us</p>
+      <div class="vinyl-stage" id="vinyl-stage">
+        <div class="vinyl-hero" id="vinyl-hero">
+          <div class="tonearm"></div>
+          <div class="label"><img id="album-art" src="https://i.scdn.co/image/ab67616d0000b273af2adcb1002a5b5e149d74ab" alt="album"></div>
+          <div class="hole"></div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:1rem;font-style:italic">Put the needle on our song</p>
+      <div class="spotify-wrap">
+        <!-- Spotify embed: reliable UI; autoplay often needs user play (browser policy) -->
+        <iframe id="spotify" style="border-radius:12px" src="https://open.spotify.com/embed/track/37Esp6rBYhZa8pxJs5xzIV?utm_source=generator&theme=0" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <!-- Hidden YouTube for reliable background audio if Spotify blocked -->
+      <div class="hidden"><iframe id="yt-audio" width="0" height="0" allow="autoplay"></iframe></div>
+      <button class="btn-ghost btn" onclick="toggleMusic()">▶ Play / Pause vinyl</button>
+      <button class="btn" onclick="go(3)">Open the note 💌</button>
+    </div>
+  </section>
+
+  <!-- 3: SECRET NOTE -->
+  <section class="slide bg-note" data-i="3">
+    <div class="center">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+          <h3 class="title" style="font-size:1.25rem">💌 A note for you</h3>
+          <span class="pill" id="lock-badge">open</span>
+        </div>
+        <p class="muted" id="lock-desc">A quiet note, waiting for just the right moment.</p>
+        <div class="timer"><div class="t" id="timer-text">ready 🤍</div></div>
+        <div class="env" id="env" onclick="revealNote()">
+          <svg width="56" height="56" viewBox="0 0 100 100" fill="none">
+            <path d="M12 32 C12 32 50 18 88 32 C88 32 92 50 88 78 C88 78 50 82 12 78 C12 78 8 50 12 32 Z" fill="#fff" stroke="#c4898f" stroke-width="2.5"/>
+            <path d="M12 32 L50 54 L88 32" stroke="#c4898f" stroke-width="2.5" fill="none"/>
+            <circle cx="78" cy="66" r="9" fill="#ff4b4b" stroke="#fff" stroke-width="2"/>
+            <path d="M78 70.5 C78 70.5 73 67 73 64 C73 62.2 74.3 61 75.7 61 C76.6 61 77.4 61.5 78 62.3 C78.6 61.5 79.4 61 80.3 61 C81.7 61 83 62.2 83 64 C83 67 78 70.5 78 70.5 Z" fill="#fff"/>
+          </svg>
+          <p class="muted" style="margin-top:.4rem;color:#c4898f">tap gently, with love</p>
+        </div>
+        <div class="note" id="note"></div>
+      </div>
+      <button class="btn" onclick="go(4)">Our story →</button>
+    </div>
+  </section>
+
+  <!-- 4: STORY -->
+  <section class="slide bg-story" data-i="4">
+    <div class="center">
+      <p class="kicker">Our journey</p>
+      <h2 class="title">The story of us</h2>
+      <div class="divider"></div>
+      <div class="tl">
+        <div class="ti"><div class="d"></div><p class="kicker" style="margin:0">Chapter I</p><h4>The First Hello</h4><p>It started with a simple conversation that somehow felt different.</p></div>
+        <div class="ti"><div class="d"></div><p class="kicker" style="margin:0">Chapter II</p><h4>Falling Softly</h4><p>Days turned into weeks. Every moment became a quiet treasure.</p></div>
+        <div class="ti"><div class="d"></div><p class="kicker" style="margin:0">Chapter III</p><h4>Choosing Each Other</h4><p>Not just once — every day, through quiet mornings and late nights.</p></div>
+        <div class="ti"><div class="d"></div><p class="kicker" style="margin:0">Chapter ∞</p><h4>And Still...</h4><p>This is just the beginning of every adventure waiting for us.</p></div>
+      </div>
+      <button class="btn" onclick="go(5)">Our memories →</button>
+    </div>
+  </section>
+
+  <!-- 5: GALLERY -->
+  <section class="slide bg-gallery" data-i="5">
+    <div class="center">
+      <p class="kicker">Captured moments</p>
+      <h2 class="title">Our memories</h2>
+      <div class="divider"></div>
+      <div class="g" id="gallery">
+        <i class="g-photo" data-cap="The day we first laughed together" style="background-image:url('https://images.unsplash.com/photo-1494774157365-96799bf66dd2?w=600')">
+          <span class="hint">tap</span><span class="cap"></span>
+        </i>
+        <i class="g-photo" data-cap="Holding your hand felt like home" style="background-image:url('https://images.unsplash.com/photo-1518568814500-92f33c5636e5?w=600')">
+          <span class="hint">tap</span><span class="cap"></span>
+        </i>
+        <i class="g-photo photo3" data-cap="That one sunset, just us" style="background-image:url('https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=900')">
+          <span class="hint">tap</span><span class="cap"></span>
+        </i>
+        <i class="g-photo" data-cap="My favorite view: us" style="background-image:url('https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?w=600')">
+          <span class="hint">tap</span><span class="cap"></span>
+        </i>
+        <i class="g-photo" data-cap="Always your partner in crime" style="background-image:url('https://images.unsplash.com/photo-1516589178481-6c783562115f?w=600')">
+          <span class="hint">tap</span><span class="cap"></span>
+        </i>
+      </div>
+      <p class="muted" style="margin-top:.8rem;font-size:.85rem">tap a photo to read its memory ✨</p>
+      <button class="btn" onclick="go(6)">How long →</button>
+    </div>
+  </section>
+
+  <!-- 6: COUNTDOWN -->
+  <section class="slide bg-count" data-i="6">
+    <div class="center">
+      <p class="kicker">Counting every day</p>
+      <h2 class="title">We've been together</h2>
+      <div class="divider"></div>
+      <div class="cnt" style="margin-top:1.2rem">
+        <div class="cu"><div class="cn" id="cd-d">0</div><div class="cl">Days</div></div>
+        <div class="cu"><div class="cn" id="cd-h">0</div><div class="cl">Hours</div></div>
+        <div class="cu"><div class="cn" id="cd-m">0</div><div class="cl">Mins</div></div>
+        <div class="cu"><div class="cn" id="cd-s">0</div><div class="cl">Secs</div></div>
+      </div>
+      <p class="script-lg" style="font-size:1.8rem;margin-top:1.4rem">and still counting...</p>
+      <button class="btn" onclick="go(7)">A letter for you →</button>
+    </div>
+  </section>
+
+  <!-- 7: LETTER -->
+  <section class="slide bg-letter" data-i="7">
+    <div class="center">
+      <p class="kicker">From the heart</p>
+      <h2 class="title">A letter for you</h2>
+      <div class="divider"></div>
+      <div class="letter" id="letter"></div>
+      <p class="script-lg" style="font-size:2rem;margin-top:1.6rem;opacity:.7">∞</p>
+      <p class="muted" style="font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;margin-top:.4rem">made with love</p>
+      <button class="btn-ghost btn" onclick="go(0)">Back to start</button>
+    </div>
+  </section>
+</div>
+
+<!-- Vinyl mini player (all slides after start) -->
+<div class="vinyl-dock" id="vinyl-dock" onclick="toggleMusic()">
+  <div class="vinyl" id="vinyl-mini">
+    <div class="vinyl-label"><img src="https://i.scdn.co/image/ab67616d0000b273af2adcb1002a5b5e149d74ab" alt=""></div>
+    <div class="vinyl-hole"></div>
+  </div>
+  <div class="vinyl-meta">
+    <div class="vinyl-song">Kisah Romantis</div>
+    <div class="vinyl-artist">Glenn Fredly</div>
+    <div class="vinyl-eq"><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- Nav -->
+<div class="nav-bar" id="nav">
+  <button class="nav-btn" id="prev" onclick="go(cur-1)">←</button>
+  <div class="dots" id="dots"></div>
+  <button class="nav-btn" id="next" onclick="go(cur+1)">→</button>
+</div>
+
+<script src="lib/utils.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

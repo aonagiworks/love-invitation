@@ -1,0 +1,17 @@
+{
+  "name": "love-invitation",
+  "version": "1.0.0",
+  "description": "Romantic gift microsite",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "jest": "^30.4.2"
+  }
+}
