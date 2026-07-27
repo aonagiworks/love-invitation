@@ -87,13 +87,14 @@
           <div class="hole"></div>
         </div>
       </div>
-      <p class="muted" style="margin-top:1rem;font-style:italic">Put the needle on our song</p>
+      <p class="muted" style="margin-top:1rem;font-style:italic">Now playing: Jatuh Suka · Tulus</p>
       <div class="spotify-wrap">
         <!-- Spotify embed: reliable UI; autoplay often needs user play (browser policy) -->
         <iframe id="spotify" style="border-radius:12px" src="https://open.spotify.com/embed/track/6PqWdGIYq5xdLaa4zCZfRp?utm_source=generator&theme=0" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
-      <!-- Hidden YouTube for reliable background audio if Spotify blocked -->
-      <div class="hidden"><iframe id="yt-audio" width="0" height="0" allow="autoplay"></iframe></div>
+      <div style="position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none;width:1px;height:1px;overflow:hidden;">
+        <iframe id="yt-audio" width="320" height="180" allow="autoplay; encrypted-media</iframe>
+     </div>
       <button class="btn-ghost btn" onclick="toggleMusic()">▶ Play / Pause vinyl</button>
       <button class="btn" onclick="go(3)">Open the note 💌</button>
     </div>
