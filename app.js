@@ -155,6 +155,11 @@ function openGift() {
 
 function revealNote() {
   document.getElementById('env').style.display = 'none';
+  const np = document.getElementById('note-photo');
+  if (np) {
+    np.classList.remove('hidden');
+    np.classList.add('fade-in');
+  }
   document.getElementById('note').style.display = 'block';
   softConfetti();
   // typewriter for the note — char by char

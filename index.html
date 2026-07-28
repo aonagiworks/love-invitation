@@ -322,6 +322,15 @@ body{
 /* note */
 .env{border:1px dashed rgba(196,137,143,.35);border-radius:18px;padding:1.1rem;text-align:center;cursor:pointer;background:linear-gradient(145deg,#fff9f0,#fff5e6);transition:transform .2s;min-height:90px}
 .env:active{transform:scale(.98)}
+.note-photo-frame{
+  position:relative;width:100%;max-width:320px;margin:.8rem auto 1rem;
+  padding:8px;background:#ffffff;border-radius:16px;
+  box-shadow:0 14px 35px rgba(196,137,143,.3), inset 0 0 0 1px rgba(255,255,255,.9);
+  transform:rotate(-1.5deg);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease;
+  overflow:hidden;
+}
+.note-photo-frame:hover{transform:rotate(0deg) scale(1.02);box-shadow:0 18px 45px rgba(196,137,143,.4)}
+.note-photo-frame img{display:block;width:100%;height:190px;object-fit:cover;border-radius:10px}
 .note{display:none;background:#fffdf8;border-radius:16px;padding:1.2rem 1.1rem 1.2rem 1.4rem;border:1px solid rgba(196,137,143,.12);position:relative}
 .note::before{content:'';position:absolute;left:12px;top:14px;bottom:14px;width:2px;background:linear-gradient(#f8a5c2,transparent);border-radius:2px}
 .note p{font-size:1.05rem;line-height:1.55;color:rgba(44,36,34,.82);margin-bottom:.55rem;padding-left:.4rem}
@@ -513,6 +522,9 @@ body{
             <path d="M78 70.5 C78 70.5 73 67 73 64 C73 62.2 74.3 61 75.7 61 C76.6 61 77.4 61.5 78 62.3 C78.6 61.5 79.4 61 80.3 61 C81.7 61 83 62.2 83 64 C83 67 78 70.5 78 70.5 Z" fill="#fff"/>
           </svg>
           <p class="muted" style="margin-top:.4rem;color:#c4898f">tap gently, with love</p>
+        </div>
+        <div class="note-photo-frame hidden" id="note-photo">
+          <img src="asset/foto2.jpg" alt="Special Memory" />
         </div>
         <div class="note" id="note"></div>
       </div>
@@ -839,6 +851,11 @@ function openGift() {
 
 function revealNote() {
   document.getElementById('env').style.display = 'none';
+  const np = document.getElementById('note-photo');
+  if (np) {
+    np.classList.remove('hidden');
+    np.classList.add('fade-in');
+  }
   document.getElementById('note').style.display = 'block';
   softConfetti();
   // typewriter for the note — char by char
