@@ -21,18 +21,13 @@
 html,body{height:100%;height:100dvh;overflow:hidden;font-family:'Cormorant Garamond',serif;color:#2c2422;background:#faf5f0;-webkit-font-smoothing:antialiased;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 
 /* Generated ambient background layer */
-body::before{
-  content:'';position:fixed;inset:0;
-  background:url('bg.png') center/cover no-repeat;
-  opacity:.42;z-index:-10;pointer-events:none;
-  filter:saturate(1.05) contrast(0.98);
+body{
+  background:#faf5f0;
 }
-
-.script{font-family:'Great Vibes',cursive}
-.serif{font-family:'Playfair Display',serif}
-
-/* ===== SLIDE SYSTEM ===== */
-.deck{position:relative;width:100%;height:100%;height:100dvh;}
+.deck{
+  position:relative;width:100%;height:100%;height:100dvh;
+  background:url('bg.png') center/cover no-repeat #faf5f0;
+}
 .slide{
   position:absolute;inset:0;z-index:-1111;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -45,15 +40,15 @@ body::before{
 .slide.active{z-index:10;opacity:1;visibility:visible;pointer-events:auto !important;transform:none}
 .slide.leave{opacity:0;transform:translateY(-18px) scale(.99);pointer-events:none !important;}
 
-/* soft translucent backgrounds per slide to reveal ambient texture */
-.bg-notif{background:radial-gradient(ellipse at 30% 20%,rgba(255,214,224,.7) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(214,232,255,.7) 0%,transparent 50%),linear-gradient(165deg,rgba(255,240,245,.85),rgba(245,230,240,.85))}
-.bg-gift{background:radial-gradient(ellipse at 50% 30%,rgba(255,248,240,.8) 0%,transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(255,228,236,.75) 0%,transparent 40%),rgba(255,254,251,.85)}
-.bg-song{background:linear-gradient(165deg,rgba(250,245,240,.85) 0%,rgba(245,225,228,.85) 55%,rgba(236,213,217,.85) 100%)}
-.bg-note{background:linear-gradient(180deg,rgba(250,245,240,.85),rgba(245,225,228,.85))}
-.bg-story{background:rgba(250,245,240,.85)}
-.bg-gallery{background:linear-gradient(180deg,rgba(250,245,240,.85),rgba(245,225,228,.85))}
-.bg-count{background:linear-gradient(180deg,rgba(245,225,228,.85),rgba(250,245,240,.85))}
-.bg-letter{background:linear-gradient(180deg,rgba(250,245,240,.85),rgba(242,215,217,.85))}
+/* translucent slide overlays letting bg.png shine through vividly */
+.bg-notif{background:radial-gradient(ellipse at 30% 20%,rgba(255,214,224,.45) 0%,transparent 60%),linear-gradient(165deg,rgba(255,240,245,.35),rgba(245,230,240,.35))}
+.bg-gift{background:radial-gradient(ellipse at 50% 30%,rgba(255,248,240,.45) 0%,transparent 65%),rgba(255,254,251,.35)}
+.bg-song{background:linear-gradient(165deg,rgba(250,245,240,.35) 0%,rgba(245,225,228,.45) 55%,rgba(236,213,217,.35) 100%)}
+.bg-note{background:linear-gradient(180deg,rgba(250,245,240,.35),rgba(245,225,228,.4))}
+.bg-story{background:rgba(250,245,240,.35)}
+.bg-gallery{background:linear-gradient(180deg,rgba(250,245,240,.35),rgba(245,225,228,.4))}
+.bg-count{background:linear-gradient(180deg,rgba(245,225,228,.4),rgba(250,245,240,.35))}
+.bg-letter{background:linear-gradient(180deg,rgba(250,245,240,.35),rgba(242,215,217,.4))}
 
 /* ===== iOS NOTIF ===== */
 .ios-status{display:flex;justify-content:space-between;width:100%;max-width:360px;padding:0 8px;margin-bottom:14px;font:600 14px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1c1c1e;opacity:0;animation:drop .5s ease .1s forwards}
