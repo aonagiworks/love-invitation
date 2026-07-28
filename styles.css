@@ -353,3 +353,22 @@ body{
   .vinyl-hero{width:min(55vw,200px);height:min(55vw,200px)}
   .ti{margin-bottom:.8rem}
 }
+
+/* ===== FLOATING HEARTS ===== */
+#hearts-container{
+  position:fixed;inset:0;pointer-events:none;z-index:999;overflow:hidden;
+}
+.fheart{
+  position:absolute;bottom:-50px;
+  opacity:0;
+  user-select:none;
+  filter:drop-shadow(0 0 8px rgba(255,105,180,.7));
+  animation:floatUp linear infinite;
+  will-change:transform,opacity;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(.6) rotate(0deg);opacity:0}
+  15%{opacity:.95}
+  85%{opacity:.8}
+  100%{transform:translateY(-115vh) scale(1.2) rotate(25deg);opacity:0}
+}
