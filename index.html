@@ -371,11 +371,31 @@ body{
   .btn{margin-top:.8rem;padding:10px 22px;min-height:42px}
   .vinyl-hero{width:min(55vw,200px);height:min(55vw,200px)}
   .ti{margin-bottom:.8rem}
+
+/* ===== FLOATING HEARTS ===== */
+#hearts-container{
+  position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden;
+}
+.fheart{
+  position:absolute;bottom:-40px;
+  font-size:1.4rem;
+  opacity:0;
+  animation:floatUp var(--dur,4s) ease-in var(--delay,0s) infinite;
+  filter:drop-shadow(0 0 6px rgba(255,107,150,.55));
+  will-change:transform,opacity;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) translateX(0) scale(.7);opacity:0}
+  10%{opacity:.9}
+  50%{transform:translateY(-45vh) translateX(var(--drift,12px)) scale(1.05)}
+  80%{opacity:.6}
+  100%{transform:translateY(-100vh) translateX(calc(var(--drift,12px)*1.6)) scale(.8);opacity:0}
 }
 </style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
+<div id="hearts-container"></div>
 
 <div class="deck" id="deck">
 
@@ -913,6 +933,26 @@ window.startJourney = startJourney;
 window.openGift = openGift;
 window.revealNote = revealNote;
 window.toggleMusic = toggleMusic;
+
+// ===== FLOATING HEARTS =====
+(function spawnHearts() {
+  const container = document.getElementById('hearts-container');
+  if (!container) return;
+  const emojis = ['💗','💖','💕','💞','💓','🌸','💝'];
+  const COUNT = 18;
+  for (let i = 0; i < COUNT; i++) {
+    const el = document.createElement('span');
+    el.className = 'fheart';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    const size = (Math.random() * 1.2 + 0.8).toFixed(2);          // 0.8–2rem
+    const left = (Math.random() * 96 + 2).toFixed(1);              // 2–98%
+    const dur  = (Math.random() * 5 + 4).toFixed(1);               // 4–9s
+    const delay = (Math.random() * 8).toFixed(1);                   // 0–8s offset
+    const drift = (Math.random() * 60 - 30).toFixed(0) + 'px';    // ±30px drift
+    el.style.cssText = `left:${left}%;font-size:${size}rem;--dur:${dur}s;--delay:${delay}s;--drift:${drift}`;
+    container.appendChild(el);
+  }
+})();
 
 </script>
 </html>
