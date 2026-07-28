@@ -17,6 +17,20 @@ describe('escAttr', () => {
   test('handles empty string', () => {
     expect(escAttr('')).toBe('');
   });
+
+  test('coerces undefined to string "undefined"', () => {
+    expect(escAttr(undefined)).toBe('undefined');
+  });
+
+  test('coerces boolean to string', () => {
+    expect(escAttr(true)).toBe('true');
+    expect(escAttr(false)).toBe('false');
+  });
+
+  test('escapes multiple occurrences in one string', () => {
+    expect(escAttr('a&b&c')).toBe('a&amp;b&amp;c');
+    expect(escAttr('""')).toBe('&quot;&quot;');
+  });
 });
 
 describe('countdownFrom', () => {
@@ -54,6 +68,23 @@ describe('countdownFrom', () => {
     const result = countdownFrom('2024-02-14', fixedNow);
     expect(result).toEqual({ days: 1, hours: 12, minutes: 30, seconds: 45 });
   });
+
+  test('returns zero-elapsed parts when startDate equals now (same day start)', () => {
+    // Same moment as start → 0ms elapsed → all parts zero
+    const fixedNow = new Date('2024-03-10T00:00:00');
+    const result = countdownFrom('2024-03-10', fixedNow);
+    expect(result).toEqual({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  });
+
+  test('calculates hours, minutes, seconds correctly without full days', () => {
+    const fixedNow = new Date('2024-05-01T03:45:10');
+    const result = countdownFrom('2024-05-01', fixedNow);
+    expect(result).toEqual({ days: 0, hours: 3, minutes: 45, seconds: 10 });
+  });
+
+  test('returns null for null input', () => {
+    expect(countdownFrom(null)).toBeNull();
+  });
 });
 
 describe('formatClock', () => {
@@ -75,5 +106,18 @@ describe('formatClock', () => {
   test('throws on invalid clock input', () => {
     expect(() => formatClock(null)).toThrow(TypeError);
     expect(() => formatClock(new Date('invalid'))).toThrow(TypeError);
+  });
+
+  test('handles end of day 23:59', () => {
+    const d = new Date(2024, 0, 1, 23, 59);
+    expect(formatClock(d)).toBe('23:59');
+  });
+
+  test('throws when given a plain number instead of Date', () => {
+    expect(() => formatClock(Date.now())).toThrow(TypeError);
+  });
+
+  test('throws when given a date-like string instead of Date', () => {
+    expect(() => formatClock('2024-01-01')).toThrow(TypeError);
   });
 });

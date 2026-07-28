@@ -1,14 +1,18 @@
-// Pure helpers come from lib/utils.js (loaded before this file in index.html).
+// Pure helpers come from lib/utils.js (must be loaded before this file in index.html).
+// Guard against missing window.LoveUtils to avoid a silent crash.
+if (!window.LoveUtils) {
+  throw new Error('[love-invitation] window.LoveUtils is not defined. Make sure lib/utils.js is loaded before app.js.');
+}
 const { escAttr, countdownFrom, formatClock } = window.LoveUtils;
 
 const C = {
   name1: 'You',
   name2: 'Me',
   startDate: '2024-02-14',
-  // Spotify track (primary). YouTube fallback for autoplay reliability:
-  spotifyTrack: '6PqWdGIYq5xdLaa4zCZfRp',
-  ytId: '2uJut6bUSftQ', // Tulus - Jatuh Suka (YouTube fallback)
-  useYoutubeAudio: true,
+  // Spotify track (primary UI). YouTube fallback for reliable autoplay:
+  spotifyTrack: '37Esp6rBYhZa8pxJs5xzIV',
+  ytId: 'dCfpg0_Hz-o', // YouTube audio (beats Spotify for autoplay reliability)
+  useYoutubeAudio: true, // set false to rely on Spotify embed only
   secretMsg: [
     'Hey you,',
     'I made this little corner just so you could feel how much you mean to me — even on the quiet days.',
