@@ -219,8 +219,8 @@ body{
 .tl::before{content:'';position:absolute;left:10px;top:8px;bottom:8px;width:1px;background:linear-gradient(transparent,#c4898f,transparent)}
 .ti{position:relative;padding-left:36px;margin-bottom:1.2rem}
 .ti .d{position:absolute;left:4px;top:6px;width:13px;height:13px;border-radius:50%;background:#faf5f0;border:2px solid #c4898f}
-.ti h4{font-family:'Playfair Display',serif;font-size:1.15rem;margin:.15rem 0}
-.ti h4 .kicker{font-size:.95rem;font-weight:600;letter-spacing:.12em}
+.ti h4{font-family:'Playfair Display',serif;font-size:1.35rem;margin:.2rem 0;line-height:1.25}
+.ti h4 .kicker{font-size:1.15rem;font-weight:700;letter-spacing:.1em}
 .ti p{font-size:.92rem;color:rgba(44,36,34,.6);line-height:1.45}
 
 /* gallery */
