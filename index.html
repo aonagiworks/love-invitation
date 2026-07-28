@@ -447,21 +447,28 @@ body{
   <section class="slide bg-song" data-i="2">
     <div class="center">
       <p class="kicker">Our soundtrack</p>
-      <h2 class="title">Kisah Romantis</h2>
-      <p class="muted" style="margin:.3rem 0 1rem">Glenn Fredly · for us</p>
+      <h2 class="title">Our Song</h2>
+      <p class="muted" style="margin:.3rem 0 1rem">for us · always 🎵</p>
       <div class="vinyl-stage" id="vinyl-stage">
         <div class="vinyl-hero" id="vinyl-hero">
           <div class="tonearm"></div>
-          <div class="label"><img id="album-art" src="https://i.scdn.co/image/ab67616d0000b273af2adcb1002a5b5e149d74ab" alt="album"></div>
+          <div class="label"><img id="album-art" src="https://i.ytimg.com/vi/2uJut6USftQ/hqdefault.jpg" alt="album"></div>
           <div class="hole"></div>
         </div>
       </div>
       <p class="muted" style="margin-top:1rem;font-style:italic">Put the needle on our song</p>
+      <!-- YouTube nocookie embed — no ads, no tracking -->
       <div class="spotify-wrap">
-        <!-- Spotify embed: reliable UI; autoplay often needs user play (browser policy) -->
-        <iframe id="spotify" style="border-radius:12px" src="https://open.spotify.com/embed/track/37Esp6rBYhZa8pxJs5xzIV?utm_source=generator&theme=0" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe
+          id="yt-embed"
+          style="border-radius:12px"
+          src="https://www.youtube-nocookie.com/embed/2uJut6USftQ?autoplay=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=0&controls=1"
+          width="100%" height="152"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen loading="lazy">
+        </iframe>
       </div>
-      <!-- Hidden YouTube for reliable background audio if Spotify blocked -->
+      <!-- Hidden YouTube for vinyl spin audio -->
       <div class="hidden"><iframe id="yt-audio" width="0" height="0" allow="autoplay"></iframe></div>
       <button class="btn-ghost btn" onclick="toggleMusic()">▶ Play / Pause vinyl</button>
       <button class="btn" onclick="go(3)">Open the note 💌</button>
@@ -666,10 +673,10 @@ const C = {
   name1: 'You',
   name2: 'Me',
   startDate: '2024-02-14',
-  // Spotify track (primary UI). YouTube fallback for reliable autoplay:
-  spotifyTrack: '37Esp6rBYhZa8pxJs5xzIV',
-  ytId: 'dCfpg0_Hz-o', // YouTube audio (beats Spotify for autoplay reliability)
-  useYoutubeAudio: true, // set false to rely on Spotify embed only
+  // YouTube (nocookie = no ads)
+  spotifyTrack: '',
+  ytId: '2uJut6USftQ',
+  useYoutubeAudio: true, // YouTube embed (no ads via nocookie domain)
   secretMsg: [
     'Hey you,',
     'I made this little corner just so you could feel how much you mean to me — even on the quiet days.',
