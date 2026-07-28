@@ -148,8 +148,9 @@ body{
 .box-b .s:nth-child(5){top:55%;left:18%;font-size:15px;animation-delay:.5s}.box-b .s:nth-child(6){top:68%;left:48%;font-size:12px;animation-delay:.8s}
 .box-b .s:nth-child(7){top:40%;left:55%;font-size:11px;animation-delay:.4s}.box-b .s:nth-child(8){top:72%;left:78%;font-size:13px;animation-delay:.7s}
 @keyframes tw{0%,100%{opacity:.7}50%{opacity:1;filter:brightness(1.2)}}
-.box-t{position:absolute;top:32px;left:42px;width:138px;height:88px;background:repeating-linear-gradient(90deg,#fff8e1 0 18px,#81c784 18px 30px);border-radius:12px 14px 10px 12px;box-shadow:inset 0 0 16px rgba(255,255,255,.4),0 6px 14px rgba(0,0,0,.07);z-index:2;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .4s}
-.gift.open .box-t{transform:translateY(-54px) rotate(-7deg);opacity:.9}
+.box-t{position:absolute;top:32px;left:42px;width:138px;height:88px;background:repeating-linear-gradient(90deg,#fff8e1 0 18px,#81c784 18px 30px);border-radius:12px 14px 10px 12px;box-shadow:inset 0 0 16px rgba(255,255,255,.4),0 6px 14px rgba(0,0,0,.07);z-index:2;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .4s ease}
+.gift.open .box-t{transform:translateY(-30px) rotate(-12deg) scale(.7);opacity:0;pointer-events:none}
+.gift.open .box-b{transform:scale(.8);opacity:0;pointer-events:none;transition:transform .4s ease,opacity .4s ease}
 .bow{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:90px;height:64px;z-index:5}
 .bl{position:absolute;width:44px;height:34px;background:linear-gradient(135deg,#ef9a9a,#e57373 40%,#ef5350);border-radius:50% 50% 40% 40%;box-shadow:inset 3px 3px 6px rgba(255,255,255,.35),inset -2px -2px 6px rgba(183,28,28,.25)}
 .bl.l{left:0;transform:rotate(-22deg)}.bl.r{right:0;transform:rotate(22deg)}
